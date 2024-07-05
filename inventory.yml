@@ -1,8 +1,7 @@
 all:
   hosts:
-    seu_ip_publico: 54.183.203.24
+    54.183.203.24:
       ansible_user: Administrator
-      ansible_password: "sua_senha_complexa_com_{caracteres_especiais}"
+      ansible_password: "htFJ%&%*ehV(EDEwNbj(g6znIBXXCB*F"
       ansible_connection: winrm
       ansible_winrm_server_cert_validation: ignore
-      
