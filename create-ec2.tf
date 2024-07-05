@@ -53,5 +53,5 @@ resource "aws_instance" "atividade4" {
   vpc_security_group_ids = [aws_security_group.atividade4_sg.id]
 
   # Adicionar o par de chaves existente
-  key_name = "atividade5"  # Substitua pelo nome do seu par de chaves existente
+  key_name = "atividade4"  # Substitua pelo nome do seu par de chaves existente
 }
