@@ -1,6 +1,6 @@
 ---
 - name: Instalar IIS no Windows Server
-  hosts: windows
+  hosts: all  # Atualizado para usar o grupo correto
   tasks:
     - name: Instalar IIS
       win_feature:
