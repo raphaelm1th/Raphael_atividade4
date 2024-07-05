@@ -1,0 +1,41 @@
+---
+- name: Install IIS on Windows Server
+  hosts: all
+  become: true
+  connection: winrm
+  vars:
+    winrm_user: "administrator"
+    winrm_pass: "htFJ%&%*ehV(EDEwNbj(g6znIBXXCB*F"
+
+  tasks:
+    - name: Install IIS Web Server
+      ansible.windows.win_feature:
+        name: Web-Server
+        state: present
+        include_management_tools: true
+        restart: yes
+
+    - name: Install IIS Web Development Features
+      ansible.windows.win_feature:
+        name: Web-Development-Features
+        state: present
+        include_management_tools: true
+        restart: yes
+
+    - name: Configure Default Website
+      ansible.windows.win_iis_website:
+        name: Default Website
+        state: present
+        protocol: http
+        port: 80
+        application_pool: DefaultAppPool
+        content_directory: C:\inetpub\wwwroot
+        bindings:
+          - ip: "*"
+            binding_type: 0
+
+    - name: Start and Enable Default Website
+      ansible.windows.win_service:
+        name: W3SVC
+        state: started
+        enabled: yes

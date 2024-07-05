@@ -1,0 +1,7 @@
+all:
+  hosts:
+    seu_ip_publico: 54.183.203.24
+      ansible_user: Administrator
+      ansible_password: "{{ lookup('env', 'ANSIBLE_PASSWORD') }}"
+      ansible_connection: winrm
+      ansible_winrm_server_cert_validation: ignore
